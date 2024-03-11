@@ -1,0 +1,7 @@
+genes = input()
+genes = genes.lower()
+adenin, guanin, citosin, timin = genes.count('а'), genes.count('г'), genes.count('ц'), genes.count('т')
+print('Аденин:', adenin)
+print('Гуанин:', guanin)
+print('Цитозин:', citosin)
+print('Тимин:', timin)
