@@ -40,5 +40,4 @@ def guess_number():
             print(f"Поздравляем! Вы угадали число {random_num} за {attempts} попыток!", end = '\n')
             more()
 
-
 guess_number()
