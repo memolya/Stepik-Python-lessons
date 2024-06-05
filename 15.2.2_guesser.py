@@ -38,7 +38,7 @@ def guess_number():
 
             else:
                 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
-            break
+                break
 
 guess_number()
 
