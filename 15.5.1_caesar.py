@@ -1,6 +1,5 @@
 from math import *
 russian_alphabet = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
-print(russian_alphabet.find('ф'))
 english_alphabet = 'abcdefghijklmnopqrstuvwxyz'
 result = []
 
@@ -12,7 +11,6 @@ def caesar_cypher_ru(text, shift):
             result.append(text[i])
 
         else:
-            # if text[i].casefold() in russian_alphabet:
             base_element_index = russian_alphabet.find(text[i].casefold()) #casefold in brackets - it doesn't inherit casefold from prev string
 
             if direction == 'ш' or direction == 'c':
@@ -40,7 +38,6 @@ def caesar_cypher_en(text, shift):
             result.append(text[i])
 
         else:
-            # if (text[i]).casefold() in english_alphabet:
             base_element_index = english_alphabet.find(text[i].casefold())
 
             if direction == 'ш' or direction == 'c':
@@ -62,7 +59,6 @@ def caesar_cypher_en(text, shift):
 def register():
     res = []
     for i in range(len(text)):
-        # for z in range(len(result)):
         if text[i].isalpha():
             if text[i].islower():
                 res.append(result[i].lower())
@@ -73,7 +69,6 @@ def register():
 
     print(*res, sep = '')
 
-
 print('Введите направление шифрования: шифрование (ш/c) /дешифрование (д/d)')
 direction = input()
 print('Введите язык шифрования: ру/en ')
@@ -83,9 +78,25 @@ shift = int(input())
 print('Введите текст: ')
 text = input()
 
-if language == 'ру':
+if (language == 'ру' and
+        shift != 0):
     caesar_cypher_ru(text, shift)
-else:
+elif (language == 'en' and
+        shift != 0):
     caesar_cypher_en(text, shift)
+#when the shift is unknown and we need all variants
+else:
+        if language == 'ру':
+            for z in range(1, 33):
+                shift = z
+                print(shift)
+                caesar_cypher_ru(text, shift)
+                result = []
 
+        else:
+            for z in range(1, 26):
+                shift = z
+                print(shift)
+                caesar_cypher_en(text, shift)
+                result = []
 
