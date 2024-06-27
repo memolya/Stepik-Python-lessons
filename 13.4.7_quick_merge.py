@@ -1,18 +1,3 @@
-list1 = []
-list2 = []
-holder = []
-
-for i in range(int(input())):
-    str_list1 = list(input())
-    str_list2 = list(input())
-
-    list1 = [int(i) for i in str_list1]
-    list2 = [int(i) for i in str_list2]
-    holder = 
-
-
-
-
 def quick_merge(list1, list2):
     result = []
 
@@ -32,4 +17,11 @@ def quick_merge(list1, list2):
     else:  # иначе прицепляем остаток другого списка
         result += list2[p2:]
 
-    print(*result)
+    return result
+
+list1 = []
+for _ in range(int(input())):
+    list2 = [int(i) for i in input().split()]
+    result = quick_merge(list1, list2)
+    list1 = result
+print(*result)
